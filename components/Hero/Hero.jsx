@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { ethers } from "ethers"
-
+import { NewEntry } from "../index"
 
 const Hero = () => {
+
+  const [NewEntryPopUp, setNewEntryPopUp] = useState(false)
+
   return (
     <div className='flex flex-col justify-center items-center'>
       <h1 className='text-white text-2xl font-bold'>Your Journal:</h1>
-      <button className='bg-green-600 text-xl py-2 px-4 my-3 rounded-full text-white'>New Entry</button>
+      <button className='bg-green-600 text-xl py-2 px-4 my-3 rounded-full text-white' onClick={() => setNewEntryPopUp(true)}>New Entry</button>
+
+      {NewEntryPopUp && (
+        <NewEntry setNewEntryPopUp={setNewEntryPopUp} />
+      )}
 
       <div className='border-2 rounded-lg border-slate-600 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 my-5 px-10'>
 
