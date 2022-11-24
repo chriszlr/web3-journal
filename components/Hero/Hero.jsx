@@ -8,11 +8,6 @@ const Hero = () => {
 
   const [NewEntryPopUp, setNewEntryPopUp] = useState(false)
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
   useEffect(() => {
     getEntries()
   }, [])
@@ -22,21 +17,12 @@ const Hero = () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner()
     const JournalContract = new ethers.Contract(JournalAddress, JournalABI, signer)
-<<<<<<< Updated upstream
     const linkSignerToContract = await JournalContract.connect(signer)
 
     const tx = await linkSignerToContract.getCreatorData(signer.getAddress())
     console.log(tx)
   }
-
->>>>>>> Stashed changes
-=======
-
-    const tx = await JournalContract.getCreatorData(signer)
-    console.log(tx)
-  }
-
->>>>>>> Stashed changes
+  
   return (
     <div className='flex flex-col justify-center items-center'>
       <h1 className='text-white text-2xl font-bold'>Your Journal:</h1>
