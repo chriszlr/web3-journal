@@ -7,6 +7,7 @@ import { JournalABI } from '../../config/constants'
 const Hero = () => {
 
   const [NewEntryPopUp, setNewEntryPopUp] = useState(false)
+  const [latestEntry, setLatestEntry] = useState("")
 
   useEffect(() => {
     getEntries()
@@ -20,7 +21,8 @@ const Hero = () => {
     const linkSignerToContract = await JournalContract.connect(signer)
 
     const tx = await linkSignerToContract.getCreatorData(signer.getAddress())
-    console.log(tx)
+    console.log(tx[2])
+    setLatestEntry(tx[2])
   }
   
   return (
@@ -35,8 +37,8 @@ const Hero = () => {
       <div className='border-2 rounded-lg border-slate-600 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 my-5 px-10'>
 
         <div className='p-3'>
-          <h2>Entry at:</h2>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis ab ad quidem, corporis saepe obcaecati, voluptas atque fugit quisquam ut quibusdam aut!</p>
+          <h2>Entry:</h2>
+          <p>{latestEntry}</p>
         </div>
 
       </div>
