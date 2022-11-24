@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import { ethers } from "ethers"
 import { NewEntry } from "../index"
+import { JournalAddress } from '../../config/constants'
+import { JournalABI } from '../../config/constants'
 
 const Hero = () => {
 
   const [NewEntryPopUp, setNewEntryPopUp] = useState(false)
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
   useEffect(() => {
     getEntries()
   }, [])
@@ -17,9 +22,17 @@ const Hero = () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner()
     const JournalContract = new ethers.Contract(JournalAddress, JournalABI, signer)
+<<<<<<< Updated upstream
     const linkSignerToContract = await JournalContract.connect(signer)
 
     const tx = await linkSignerToContract.getCreatorData(signer.getAddress())
+    console.log(tx)
+  }
+
+>>>>>>> Stashed changes
+=======
+
+    const tx = await JournalContract.getCreatorData(signer)
     console.log(tx)
   }
 
